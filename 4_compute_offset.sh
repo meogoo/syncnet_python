@@ -24,7 +24,7 @@ if [ $? -ne 0 ]; then
     echo "Failed to activate the conda environment: $ENV_NAME"
     exit 1
 fi
-echo "Conda environment '$ENV_NAME' activated successfully."
+#echo "Conda environment '$ENV_NAME' activated successfully."
 
 
 ################## 参数检查 ###################
@@ -52,12 +52,14 @@ new_tmp_path="${target_dir}${pure_file_name}_${random_suffix}"
 
 # 调用 offset 并捕获其输出（同时捕获标准错误流）
 cmd="python3 demo_syncnet.py --videofile \"$INPUT_FILE\" --tmp_dir \"$new_tmp_path\""
-echo "Executing command: $cmd"
 result=$(eval "$cmd")
-echo "Result: $result"
+#echo "Result: $result"
+
+rm -rf "$new_tmp_path"
 
 # 将文件的相对路径和结果写入输出文件
 av_offset_line=$(echo "$result" | grep "^AV offset")
 echo "$av_offset_line"
 
-rm -rf "$new_tmp_path"
+
+
