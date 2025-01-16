@@ -19,3 +19,6 @@ python demo_syncnet.py --videofile data/example.avi --tmp_dir ./tmp/example
 python demo_syncnet.py --videofile ../data/mp4_224_dir/altman/0_altman_1977_2268.mp4 --tmp_dir ./tmp/alt19xx
 
 
+bash 4_compute_offset.sh ../data/mp4_224_dir/ offset.txt
+
+
